@@ -2,9 +2,9 @@ import dropDownIconBlack from "../../assets/images/dropdown-black.svg";
 import dropDownIconWhite from "../../assets/images/dropdown-white.svg";
 import { useAppSelector } from "../../redux/hook";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchCountriesByRegion } from "../../redux/countriesSlice";
-import type { AppDispatch, RootState } from "../../redux/store";
+import type { AppDispatch } from "../../redux/store";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 

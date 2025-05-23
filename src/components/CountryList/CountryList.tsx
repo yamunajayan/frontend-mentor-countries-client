@@ -6,7 +6,6 @@ import CountryCard from "../CountryCard/CountryCard";
 
 const CountryList = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const countries = useSelector((state: RootState) => state.countries);
 
   const { regionList, list, loading, error } = useSelector(
     (state: RootState) => state.countries
