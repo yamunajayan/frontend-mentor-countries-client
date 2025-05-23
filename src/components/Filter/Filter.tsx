@@ -30,7 +30,9 @@ const Filter = () => {
         darkMode ? "dark-mode-container" : "light-mode-container"
       } relative flex items-center justify-between rounded-[5px] px-[32px] py-[16px] mt-[40px] mb-[32px] w-[196px] md:mt[48px]`}
     >
-      <p className="font-[400] text-[12px] leading-[20px]">{selectedRegion}</p>
+      <p className="font-[400] text-[12px] leading-[20px] md:text-[14px]">
+        {selectedRegion}
+      </p>
       <button onClick={handleToggle} className="">
         <img
           src={darkMode ? dropDownIconWhite : dropDownIconBlack}
@@ -49,7 +51,7 @@ const Filter = () => {
             <li
               key={region}
               onClick={() => handleSelect(region)}
-              className={`px-[32px] py-[4px] cursor-pointer text-[12px] font-[400] leading-[16px] ${
+              className={`px-[32px] py-[4px] cursor-pointer text-[12px] font-[400] leading-[16px] md:text-[14px] ${
                 darkMode ? "hover:bg-[#3c4a57]" : "hover:bg-gray-100"
               }`}
             >
