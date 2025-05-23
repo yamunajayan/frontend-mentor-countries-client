@@ -6,10 +6,13 @@ import CountryCard from "../CountryCard/CountryCard";
 
 const CountryList = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const countries = useSelector((state: RootState) => state.countries);
 
-  const { list, loading, error } = useSelector(
+  const { regionList, list, loading, error } = useSelector(
     (state: RootState) => state.countries
   );
+
+  const countriesToShow = regionList.length > 0 ? regionList : list;
 
   useEffect(() => {
     dispatch(fetchCountries());
@@ -20,7 +23,7 @@ const CountryList = () => {
   return (
     <article>
       <ul className="flex flex-col items-center md:flex-row md:flex-wrap md:justify-between gap-[16px] md:gap-[40px]">
-        {list.map((country) => {
+        {countriesToShow.map((country) => {
           return (
             <div key={country.name}>
               <CountryCard country={country} />

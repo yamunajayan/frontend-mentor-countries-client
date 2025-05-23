@@ -2,6 +2,9 @@ import dropDownIconBlack from "../../assets/images/dropdown-black.svg";
 import dropDownIconWhite from "../../assets/images/dropdown-white.svg";
 import { useAppSelector } from "../../redux/hook";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCountriesByRegion } from "../../redux/countriesSlice";
+import type { AppDispatch, RootState } from "../../redux/store";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -9,6 +12,7 @@ const Filter = () => {
   const darkMode = useAppSelector((state) => state.theme.darkMode);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState("Filter By Region");
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
@@ -17,7 +21,9 @@ const Filter = () => {
   const handleSelect = (region: string) => {
     setSelectedRegion(region);
     setIsOpen(false);
+    dispatch(fetchCountriesByRegion(region));
   };
+
   return (
     <section
       className={`${
@@ -43,7 +49,9 @@ const Filter = () => {
             <li
               key={region}
               onClick={() => handleSelect(region)}
-              className="px-[32px] py-[4px] cursor-pointer hover:bg-gray-100 dark:hover:bg-[#3c4a57] text-[12px] font-[400] leading-[16px]"
+              className={`px-[32px] py-[4px] cursor-pointer text-[12px] font-[400] leading-[16px] ${
+                darkMode ? "hover:bg-[#3c4a57]" : "hover:bg-gray-100"
+              }`}
             >
               {region}
             </li>
