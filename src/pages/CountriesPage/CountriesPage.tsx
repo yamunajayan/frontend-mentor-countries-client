@@ -1,14 +1,32 @@
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useAppSelector } from "../../redux/hook";
 import backArrowBlack from "../../assets/images/arrows-back-black.svg";
 import backArrowWhite from "../../assets/images/arrows-back-white.svg";
 import type { Currency, Language } from "../../types";
+import { fetchCountryByName } from "../../redux/countriesSlice";
+import type { AppDispatch, RootState } from "../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
 const CountriesPage = () => {
-  const location = useLocation();
   const darkMode = useAppSelector((state) => state.theme.darkMode);
-  const country = location.state?.country;
-  console.log(country);
+  const { countryName } = useParams<{ countryName: string }>();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const country = useSelector(
+    (state: RootState) => state.countries.selectedCountry
+  );
+  const loading = useSelector((state: RootState) => state.countries.loading);
+  const error = useSelector((state: RootState) => state.countries.error);
+
+  useEffect(() => {
+    if (countryName) {
+      dispatch(fetchCountryByName(countryName));
+    }
+  }, [countryName, dispatch]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!country) return <div>No country data found.</div>;
   return (
     <article className="flex flex-col items-start justify-start w-full max-w-[1240px] mx-auto px-[20px] md:px-[40px]">
       <Link to="/">

@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/country/:name" element={<CountriesPage />} />
+          <Route path="/country/:countryName" element={<CountriesPage />} />
         </Routes>
       </main>
     </BrowserRouter>

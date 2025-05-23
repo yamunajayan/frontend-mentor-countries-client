@@ -36,4 +36,6 @@ export interface CountryState {
   list: Country[];
   loading: boolean;
   error: string | null;
+  selectedCountry: Country | null; // One specific country
+  regionList: Country[]; // Filtered countries by region
 }

@@ -10,7 +10,7 @@ const CountryCard = ({ country }: { country: Country }) => {
         darkMode ? "dark-mode-container" : "light-mode-container"
       }  w-[264px] h-[336px] mb-[16px] rounded`}
     >
-      <Link to={`/country/${country.name}`} state={{ country }}>
+      <Link to={`/country/${country.name}`}>
         <img
           src={country.flags.png}
           alt="Country Flag"
