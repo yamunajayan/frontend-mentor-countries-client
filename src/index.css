@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Nunito Sans Variable";
+  src: url("../src/assets/font/Nunito_Sans/NunitoSans-Variable.ttf")
+    format("truetype");
+  font-weight: 100 900; /* variable font weight range */
+  font-stretch: 75% 125%; /* optional, for width axis if supported */
+  font-style: normal;
+}
+
+:root {
+  font-family: "Nunito Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-darkmode-background-primary: #202c36;
+  --color-darkmode-background-secondary: #2b3844;
+  --color-darkmode-text-primary: #ffffff;
+  --color-lightmode-text-primary: #111517;
+  --color-lightmode-background-primary: hsl(0, 0%, 99%);
+  --color-lightmode-background-secondary: #ffffff;
+}
+
+body {
+  font-family: "Nunito Sans Variable", system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  font-weight: 400; /* pick a specific weight */
+}

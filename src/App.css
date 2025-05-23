@@ -1,0 +1,19 @@
+.dark-mode-main {
+  background-color: var(--color-darkmode-background-primary);
+  color: var(--color-darkmode-text-primary);
+}
+
+.dark-mode-container {
+  background-color: var(--color-darkmode-background-secondary);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.055);
+}
+
+.light-mode-main {
+  background-color: var(--color-lightmode-background-primary);
+  color: var(--color-lightmode-text-primary);
+}
+
+.light-mode-container {
+  background-color: var(--color-lightmode-background-secondary);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.055);
+}
